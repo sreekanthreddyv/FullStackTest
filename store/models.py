@@ -11,39 +11,61 @@ import ast
 
 
 # Create your models here.
-class Location(models.Model):
+class MainStore(models.Model):
+    store_name = models.CharField(max_length=80)  # , default='BanjaraHills')
+
+    def __str__(self):
+        return self.store_name
+
+
+class Location(MPTTModel):
     # user = models.ForeignKey(User)
-    location_name = models.CharField(max_length=30, unique=True)
+    store_name = models.ForeignKey(MainStore, on_delete=models.CASCADE, null=True)
+    parent = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True, on_delete=models.CASCADE)
+    # store_name = models.ManyToOneRel(MainStore, field_name='store_name', on_delete=models.CASCADE)
+    location_name = models.CharField(max_length=30, unique=True, default='Center')
 
     def __str__(self):
         return self.location_name
 
 
-class Department(MPTTModel, Location):
-    # location_name = models.ForeignKey(Location, on_delete=models.CASCADE)
-    department_name = models.CharField(max_length=50)
-    parent = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True, on_delete=models.CASCADE, )
+class Department(MPTTModel):
+    store_name = models.ForeignKey(MainStore, on_delete=models.CASCADE, null=True)
+    location_name = models.ForeignKey(Location, on_delete=models.CASCADE, null=True)
+    parent = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True, on_delete=models.CASCADE)
+    department_name = models.CharField(max_length=50, default='Bakery')
 
     def __str__(self):
         return self.department_name
 
 
-class Category(MPTTModel, Department):
-    # location_name = models.OneToOneField(Location, on_delete=models.CASCADE)
-    # department_name = models.ForeignKey(Department, on_delete=models.CASCADE)
+class Category(MPTTModel):
+    store_name = models.ForeignKey(MainStore, on_delete=models.CASCADE, null=True)
+    location_name = models.ForeignKey(Location, on_delete=models.CASCADE, null=True)
+    department_name = models.ForeignKey(Department, on_delete=models.CASCADE, null=True)
+    parent = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True, on_delete=models.CASCADE)
     category_name = models.CharField(max_length=50)
-    parent = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True, on_delete=models.CASCADE, )
 
     def __str__(self):
         return self.category_name
 
 
-class SubCategory(MPTTModel, Category):
-    # location_name = models.ForeignKey(Location, on_delete=models.CASCADE)
-    # department_name = models.OneToOneField(Department, on_delete=models.CASCADE, default='Dairy')
-    # category_name = models.ForeignKey(Category, on_delete=models.CASCADE)
+class SubCategory(MPTTModel):
+    store_name = models.ForeignKey(MainStore, on_delete=models.CASCADE, null=True)
+    location_name = models.ForeignKey(Location, on_delete=models.CASCADE, null=True)
+    department_name = models.ForeignKey(Department, on_delete=models.CASCADE, null=True)
+    category_name = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    parent = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True, on_delete=models.CASCADE)
     sub_category_name = models.CharField(max_length=50)
-    parent = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True, on_delete=models.CASCADE, )
 
     def __str__(self):
         return self.sub_category_name
+
+
+class Model2(MPTTModel):
+    store_name = models.ForeignKey(MainStore, on_delete=models.CASCADE)
+    location_name = models.CharField(max_length=50)
+    parent = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True, on_delete=models.CASCADE)
+    department_name = models.CharField(max_length=50)
+    category_name = models.CharField(max_length=50)
+    sub_category_name = models.CharField(max_length=50)

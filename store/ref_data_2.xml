@@ -1,0 +1,42 @@
+<root name="BanjaraHills">
+	<children name="Center">
+        <children name="Dairy">
+            <children name="Cheese">
+                <children name="Cheese Sauce"></children>
+                <children name="Specialty Cheese"></children>
+            </children>
+            <children name="Cream or Creamer">
+                <children name="Whipping Creams"></children>
+                <children name="Cottage Cheese"></children>
+            </children>
+        </children>
+        <children name="Frozen">
+            <children name="Frozen Bake">
+                <children name="Bread or Dough Products Frozen"></children>
+                <children name="Breakfast Cake or Sweet Roll Frozen"></children>
+            </children>
+            <children name="Frozen Juice">
+                <children name="Frozen Apple Juice"></children>
+                <children name="Frozen Fruit Drink Mixers"></children>
+            </children>
+        </children>
+    </children>
+    <children name="Perimeter">
+        <children name="Bakery">
+            <children name="Bakery Bread">
+                <children name="Bagels"></children>
+                <children name="Baking or Breading Products"></children>
+            </children>
+            <children name="In Store Bakery">
+                <children name="Whipping CreamsCakes"></children>
+                <children name="Pies"></children>
+            </children>
+        </children>
+        <children name="Seafood">
+            <children name="Other Seafood">
+                <children name="All Other Seafood"></children>
+                <children name="Prepared Seafood Entrees"></children>
+            </children>
+        </children>
+    </children>
+</root>

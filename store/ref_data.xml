@@ -1,0 +1,42 @@
+<Store name="BanjaraHills">
+	<Location name="Center">
+        <Department name="Dairy">
+            <Category name="Cheese">
+                <SubCategory name="Cheese Sauce"></SubCategory>
+                <SubCategory name="Specialty Cheese"></SubCategory>
+            </Category>
+            <Category name="Cream or Creamer">
+                <SubCategory name="Whipping Creams"></SubCategory>
+                <SubCategory name="Cottage Cheese"></SubCategory>
+            </Category>
+        </Department>
+        <Department name="Frozen">
+            <Category name="Frozen Bake">
+                <SubCategory name="Bread or Dough Products Frozen"></SubCategory>
+                <SubCategory name="Breakfast Cake or Sweet Roll Frozen"></SubCategory>
+            </Category>
+            <Category name="Frozen Juice">
+                <SubCategory name="Frozen Apple Juice"></SubCategory>
+                <SubCategory name="Frozen Fruit Drink Mixers"></SubCategory>
+            </Category>
+        </Department>
+    </Location>
+    <Location name="Perimeter">
+        <Department name="Bakery">
+            <Category name="Bakery Bread">
+                <SubCategory name="Bagels"></SubCategory>
+                <SubCategory name="Baking or Breading Products"></SubCategory>
+            </Category>
+            <Category name="In Store Bakery">
+                <SubCategory name="Whipping CreamsCakes"></SubCategory>
+                <SubCategory name="Pies"></SubCategory>
+            </Category>
+        </Department>
+        <Department name="Seafood">
+            <Category name="Other Seafood">
+                <SubCategory name="All Other Seafood"></SubCategory>
+                <SubCategory name="Prepared Seafood Entrees"></SubCategory>
+            </Category>
+        </Department>
+    </Location>
+</Store>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+    <h3>ALl Data Display</h3>
+    <table>
+        {% for val in data %}
+            <tr>
+                <td>{{ val.store_name }}</td>
+                <td>{{ val.location_name }}</td>
+                <td>{{ val.department_name }}</td>
+                <td>{{ val.category_name }}</td>
+                <td>{{ val.sub_category_name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
