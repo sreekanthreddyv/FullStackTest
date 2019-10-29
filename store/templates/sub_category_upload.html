@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SubCategory</title>
+</head>
+<body>
+<h2>All Item Details</h2>
+<table>
+    {% for item in details %}
+    <tr>
+        <td><b>StoreName:</b>{{ item.store_name }}</td>
+        <td><b>Location:</b> {{ item.location_name }}</td>
+        <td><b>Department:</b> {{ item.department_name }}</td>
+        <td><b>Category:</b> {{ item.category_name }}</td>
+        <td><b>SubCategory:</b>{{ item.sub_category_name }}</td>
+    </tr>
+    <tr>
+        <td colspan="2" class="divider">
+            <hr/>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
